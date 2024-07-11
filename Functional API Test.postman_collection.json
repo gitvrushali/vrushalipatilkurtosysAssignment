@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "797af833-5d24-4742-9325-5fd890c74e00",
+		"name": "Functional API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27058308"
+	},
+	"item": [
+		{
+			"name": "statusCodeValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate Status Code\",function()\r",
+							"{\r",
+							"    \r",
+							"pm.response.to.have.status(200);\r",
+							"\r",
+							"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidateResponseTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 2 seconds\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000); // Asserts response time is less than 2000 ms (2 seconds)\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Server header contains Cloudflare\", function () {\r",
+							"    pm.response.to.have.header('Server', 'cloudflare'); \r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.kurtosys.com",
+					"protocol": "https",
+					"host": [
+						"www",
+						"kurtosys",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
